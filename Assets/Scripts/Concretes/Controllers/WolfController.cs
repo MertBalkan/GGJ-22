@@ -13,18 +13,11 @@ public class WolfController : MyCharacterController
         _dash = new Dash(this, _input, _dashSpeed);
     }
 
-    protected override void FixedUpdate()
+    protected override void Update()
     {
-        base.FixedUpdate();
-
-        if (_input.Dash)
-        {
-            Debug.Log("DASH HAPPENED!");
-            _dash.DashMovement();
-        }
-    }
-
-    protected override void Update() {
         base.Update();
+        if (_input.Dash)
+            _dash.DashMovement();
     }
+ 
 }
