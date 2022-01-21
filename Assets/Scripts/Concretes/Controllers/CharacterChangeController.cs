@@ -15,17 +15,23 @@ public class CharacterChangeController : MonoBehaviour
     }
     private void Update()
     {
+        ChangeCharacter();
+    }
+    private void ChangeCharacter()
+    {
         if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy)
         {
-            _sheepCharacter.SetActive(false);
-            _wolfCharacter.transform.position = _sheepCharacter.transform.position;
-            _wolfCharacter.SetActive(true);
+            ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
         }
         else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
         {
-            _sheepCharacter.SetActive(true);
-            _sheepCharacter.transform.position = _wolfCharacter.transform.position;
-            _wolfCharacter.SetActive(false);
+            ControlChangeStates(_sheepCharacter, _wolfCharacter, true, false);
         }
+    }
+    private void ControlChangeStates(GameObject toObj, GameObject thisObj, bool sheepSituation, bool wolfSituation)
+    {
+        _sheepCharacter.SetActive(sheepSituation);
+        toObj.transform.position = thisObj.transform.position;
+        _wolfCharacter.SetActive(wolfSituation);
     }
 }

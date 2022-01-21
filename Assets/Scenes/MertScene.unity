@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 10
   _jumpForce: 15000
-  _dashSpeed: 10000
+  _dashSpeed: 20000
 --- !u!50 &277456124
 Rigidbody2D:
   serializedVersion: 4
