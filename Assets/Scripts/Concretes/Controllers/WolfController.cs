@@ -19,5 +19,5 @@ public class WolfController : MyCharacterController
         if (_input.Dash)
             _dash.DashMovement();
     }
- 
+
 }

@@ -19,11 +19,13 @@ public class Dash : IDash
     {
         if (_input.HorizontalMove < 0)
         {
-            _wolfController.GetComponent<Rigidbody2D>().AddForce(Vector2.left * Time.fixedDeltaTime * _dashSpeed);
+            // _wolfController.GetComponent<Rigidbody2D>().AddForce(Vector2.left * Time.fixedDeltaTime * _dashSpeed);
+            _wolfController.GetComponent<Rigidbody2D>().velocity = Vector2.left * Time.fixedDeltaTime * _dashSpeed;
         }
         else if (_input.HorizontalMove > 0)
         {
-            _wolfController.GetComponent<Rigidbody2D>().AddForce(Vector2.right * Time.fixedDeltaTime * _dashSpeed);
+            // _wolfController.GetComponent<Rigidbody2D>().AddForce(Vector2.right * Time.fixedDeltaTime * _dashSpeed);
+            _wolfController.GetComponent<Rigidbody2D>().velocity = Vector2.right * Time.fixedDeltaTime * _dashSpeed;
         }
     }
 }
