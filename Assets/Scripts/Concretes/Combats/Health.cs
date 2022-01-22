@@ -16,7 +16,9 @@ public class Health : MonoBehaviour, IHealth
 
     public void TakeDamage(float damageCount)
     {
-        if(IsDead) return;
+        if(IsDead) {
+            return;
+        }
 
         if(!IsDead) 
             _currentHealth -= damageCount;

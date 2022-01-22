@@ -33,7 +33,11 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     }
     protected virtual void Update()
     {
-        if(_health.IsDead) return; //if character is dead then return and dont do anything. This will suddenly stop player's move
+        if (_health.IsDead) //if character is dead then return and dont do anything. This will suddenly stop player's move
+        {
+            GameManager.Instance.LoadNextSceneWithID(0); //loading next scene here... maybe we can change this one's position later
+            return;
+        }
 
         if (_input.HorizontalMove != 0)
             _move.Move(_input.HorizontalMove);
