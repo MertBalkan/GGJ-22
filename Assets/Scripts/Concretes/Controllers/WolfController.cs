@@ -16,8 +16,9 @@ public class WolfController : MyCharacterController
     protected override void Update()
     {
         base.Update();
-        if (_input.Dash)
-            _dash.DashMovement();
+        
+        if (_health.IsDead) return;
+        if (_input.Dash) _dash.DashMovement();
     }
 
 }
