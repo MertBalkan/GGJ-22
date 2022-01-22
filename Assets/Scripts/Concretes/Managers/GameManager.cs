@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void MakeSingletonObject()
     {
-        if (Instance != null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
