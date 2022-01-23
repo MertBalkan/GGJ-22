@@ -35,7 +35,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     {
         if (_health.IsDead) //if character is dead then return and dont do anything. This will suddenly stop player's move
         {
-            GameManager.Instance.LoadNextSceneWithID(0); //loading next scene here... maybe we can change this one's position later
+            GameManager.Instance.LoadNextSceneWithID(1); //loading next scene here... maybe we can change this one's position later
             return;
         }
 
