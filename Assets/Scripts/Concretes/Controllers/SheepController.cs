@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class SheepController : MyCharacterController, IEntity
 {
-    private bool _isEatGrass;
-    private void OnTriggerEnter2D(Collider2D other)
+    private bool _canEat = false;
+    protected override void OnCollisionEnter2D(Collision2D other)
     {
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag.Equals("Grass") && _input.EatGrass)
+        base.OnCollisionEnter2D(other);
+
+        if (other.gameObject.tag.Equals("Grass") && other.contacts[0].normal.y > 0.6f || other.contacts[0].normal.y < -0.6f)
         {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * Time.fixedDeltaTime * 10000);
         }
     }
-
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag.Equals("Grass") && _input.EatGrass)
+        if (other.contacts[0].normal.y > 0.6f || other.contacts[0].normal.y < -0.6f)
+            _canEat = false;
+        if (other.contacts[0].normal.x > 0.6f || other.contacts[0].normal.x < -0.6f)
+            _canEat = true;
+
+        if (other.gameObject.tag.Equals("Grass") && _input.EatGrass && _canEat)
         {
-            Debug.Log("AFIED");
             Destroy(other.gameObject);
         }
-        if (other.gameObject.tag.Equals("Grass") && !_input.EatGrass)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * Time.fixedDeltaTime * 5000);
-        }
     }
-
 }
