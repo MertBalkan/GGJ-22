@@ -66,27 +66,23 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         if (other.gameObject.tag.Equals("Sign"))
         {
             var signObject = other.gameObject.GetComponent<SignController>();
-            var signAnimation = other.gameObject.GetComponent<Animator>();
 
             if (signObject != null)
-                signAnimation.SetBool("signAnim", true);
+                signObject.PlayAnimation();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         var signObject = other.gameObject.GetComponent<SignController>();
-        var signAnimation = other.gameObject.GetComponent<Animator>();
-
+        
         if (signObject != null)
-            signAnimation.SetBool("signAnim", false);
+            signObject.StopAnimation();
     }
 
     private void CheckOnGround(Collision2D other, bool onGroundSituation)
     {
         if (other.gameObject.tag.Equals("Ground"))
-        {
             _jump.OnGround = onGroundSituation;
-        }
     }
 }
