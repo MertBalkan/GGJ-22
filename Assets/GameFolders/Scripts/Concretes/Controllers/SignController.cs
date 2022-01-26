@@ -6,7 +6,7 @@ using TMPro;
 public class SignController : MonoBehaviour
 {
     [SerializeField] private string _writeText;
-    
+    [SerializeField] private GameObject _canvas;
     private TextMeshProUGUI _text;
 
     public string WriteText { get => _writeText; set => _writeText = value; }
@@ -20,20 +20,12 @@ public class SignController : MonoBehaviour
         if (_text != null)
             _text.text = _writeText;
     }
-    public void PlayAnimation()
+    public void SetAnimation(bool isAnimationActive)
     {
-        GetComponent<Animator>().SetBool("signAnim", true);
+        GetComponent<Animator>().SetBool("signAnim", isAnimationActive);
     }
-    public void StopAnimation()
+    public void SetCanvas(bool isCanvasActive)
     {
-        GetComponent<Animator>().SetBool("signAnim", false);
-    }
-    public void ActiveCanvas()
-    {
-
-    }
-    public void DeactiveCanvas()
-    {
-
+        _canvas.SetActive(isCanvasActive);
     }
 }

@@ -67,8 +67,10 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         {
             var signObject = other.gameObject.GetComponent<SignController>();
 
-            if (signObject != null)
-                signObject.PlayAnimation();
+            if (signObject != null){
+                signObject.SetCanvas(true);
+                signObject.SetAnimation(true);
+            }
         }
     }
 
@@ -76,8 +78,10 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     {
         var signObject = other.gameObject.GetComponent<SignController>();
         
-        if (signObject != null)
-            signObject.StopAnimation();
+        if (signObject != null){
+            signObject.SetCanvas(false);
+            signObject.SetAnimation(false);
+        }
     }
 
     private void CheckOnGround(Collision2D other, bool onGroundSituation)
