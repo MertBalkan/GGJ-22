@@ -46,7 +46,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
             _jump.Jump();
 
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    protected virtual void OnCollisionEnter2D(Collision2D other)
     {
         CheckOnGround(other, true);
 
@@ -56,7 +56,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    protected virtual void OnCollisionExit2D(Collision2D other)
     {
         CheckOnGround(other, false);
     }
