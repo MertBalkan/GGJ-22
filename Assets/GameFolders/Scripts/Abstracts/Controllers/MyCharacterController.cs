@@ -54,11 +54,25 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         {
             _health.TakeDamage(_currentHealth); //this kills player suddenly
         }
+
+
     }
 
     protected virtual void OnCollisionExit2D(Collision2D other)
     {
         CheckOnGround(other, false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("Sign"))
+        {
+            var signObject = other.gameObject.GetComponent<SignController>();
+            var signAnimation = other.gameObject.GetComponent<Animator>();
+
+            if (signObject != null)
+                signAnimation.SetTrigger("signAnim");
+        }
     }
 
     private void CheckOnGround(Collision2D other, bool onGroundSituation)
