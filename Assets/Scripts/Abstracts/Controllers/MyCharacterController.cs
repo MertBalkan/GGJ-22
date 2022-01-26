@@ -48,7 +48,6 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-
         CheckOnGround(other, true);
 
         if (other.gameObject.tag.Equals("Obstacle"))
