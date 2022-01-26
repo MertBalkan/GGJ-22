@@ -54,8 +54,6 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         {
             _health.TakeDamage(_currentHealth); //this kills player suddenly
         }
-
-
     }
 
     protected virtual void OnCollisionExit2D(Collision2D other)
@@ -71,8 +69,17 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
             var signAnimation = other.gameObject.GetComponent<Animator>();
 
             if (signObject != null)
-                signAnimation.SetTrigger("signAnim");
+                signAnimation.SetBool("signAnim", true);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        var signObject = other.gameObject.GetComponent<SignController>();
+        var signAnimation = other.gameObject.GetComponent<Animator>();
+
+        if (signObject != null)
+            signAnimation.SetBool("signAnim", false);
     }
 
     private void CheckOnGround(Collision2D other, bool onGroundSituation)
