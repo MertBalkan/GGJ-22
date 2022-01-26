@@ -16,7 +16,7 @@ public class GrassInteraction : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Grass") && other.contacts[0].normal.y > 0.6f || other.contacts[0].normal.y < -0.6f)
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * Time.fixedDeltaTime * _jumpForceFromGrass);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * Time.deltaTime * _jumpForceFromGrass);
         }
     }
     private void OnCollisionStay2D(Collision2D other)
