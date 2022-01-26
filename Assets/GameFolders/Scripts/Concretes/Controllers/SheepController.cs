@@ -8,7 +8,7 @@ public class SheepController : MyCharacterController, IEntity
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.G))
+        if (_input.TimeAdjustButton)
         {
             GetComponent<TimeController>().MakeTimeToSlow();
         }
