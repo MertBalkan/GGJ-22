@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 1371324869}
   - component: {fileID: 1371324868}
   - component: {fileID: 1371324871}
+  - component: {fileID: 1371324872}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -621,6 +622,19 @@ MonoBehaviour:
   _moveSpeed: 2
   _jumpForce: 20000
   _currentHealth: 100
+--- !u!114 &1371324872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371324867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dbc7124a17718489c2bf25f25220d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForceFromGrass: 20000
 --- !u!1 &1485498502
 GameObject:
   m_ObjectHideFlags: 0
