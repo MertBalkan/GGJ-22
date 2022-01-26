@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CharacterChangeController : MonoBehaviour
 {
+    [Header("CHARACTERS")]
     [SerializeField] private GameObject _wolfCharacter;
     [SerializeField] private GameObject _sheepCharacter;
+
+    [Header("IMAGES")]
+    [Space(20)]
+    [SerializeField] private GameObject _wolfImage;
+    [SerializeField] private GameObject _sheepImage;
 
     private IInput _input;
 
