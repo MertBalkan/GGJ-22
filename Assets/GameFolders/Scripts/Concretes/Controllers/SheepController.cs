@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SheepController : MyCharacterController, IEntity
 {
-
     protected override void Update()
     {
         base.Update();
@@ -13,5 +12,4 @@ public class SheepController : MyCharacterController, IEntity
             GetComponent<TimeController>().MakeTimeToSlow();
         }
     }
-
 }
