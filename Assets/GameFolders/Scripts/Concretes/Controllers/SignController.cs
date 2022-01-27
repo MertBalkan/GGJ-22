@@ -5,6 +5,7 @@ using TMPro;
 
 public class SignController : MonoBehaviour
 {
+    [Multiline]
     [SerializeField] private string _writeText;
     [SerializeField] private GameObject _signCanvas;
     [SerializeField] private TextMeshProUGUI _text;
