@@ -13,32 +13,44 @@ public class CharacterChangeController : MonoBehaviour
     [SerializeField] private GameObject _wolfImage;
     [SerializeField] private GameObject _sheepImage;
 
+    [Header("WHICH CHARACTER")]
+    [Space(20)]
+    [SerializeField] private WhichCharacterEnum _currentCharacter;
+
     private IInput _input;
 
     private void Awake()
     {
         _input = new PCInput();
     }
+    private void Start()
+    {
+        _currentCharacter = WhichCharacterEnum.Sheep;
+    }
     private void Update()
     {
         ChangeCharacter();
-
-        if (!_sheepCharacter.activeInHierarchy)
-            transform.position = _wolfCharacter.transform.position;
-        else
-            transform.position = _sheepCharacter.transform.position;
+        CheckTransform();
     }
     private void ChangeCharacter()
     {
         if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy)
         {
+            _currentCharacter = WhichCharacterEnum.Wolf;
             ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
         }
         else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
         {
-            transform.position = _wolfCharacter.transform.position;
+            _currentCharacter = WhichCharacterEnum.Sheep;
             ControlChangeStates(_sheepCharacter, _wolfCharacter, true, false);
         }
+    }
+    private void CheckTransform()
+    {
+        if (!_sheepCharacter.activeInHierarchy)
+            transform.position = _wolfCharacter.transform.position;
+        else
+            transform.position = _sheepCharacter.transform.position;
     }
     private void ControlChangeStates(GameObject toObj, GameObject thisObj, bool sheepSituation, bool wolfSituation)
     {
