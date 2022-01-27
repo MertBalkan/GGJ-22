@@ -22,6 +22,11 @@ public class CharacterChangeController : MonoBehaviour
     private void Update()
     {
         ChangeCharacter();
+
+        if (!_sheepCharacter.activeInHierarchy)
+            transform.position = _wolfCharacter.transform.position;
+        else
+            transform.position = _sheepCharacter.transform.position;
     }
     private void ChangeCharacter()
     {
@@ -31,6 +36,7 @@ public class CharacterChangeController : MonoBehaviour
         }
         else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
         {
+            transform.position = _wolfCharacter.transform.position;
             ControlChangeStates(_sheepCharacter, _wolfCharacter, true, false);
         }
     }

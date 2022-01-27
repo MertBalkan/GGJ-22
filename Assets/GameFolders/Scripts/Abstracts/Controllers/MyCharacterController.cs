@@ -26,10 +26,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
 
     protected virtual void FixedUpdate()
     {
-        if (_input.CharacterJump)
-        {
-            _jump.Jump();
-        }
+       
     }
     protected virtual void Update()
     {
@@ -67,7 +64,8 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         {
             var signObject = other.gameObject.GetComponent<SignController>();
 
-            if (signObject != null){
+            if (signObject != null)
+            {
                 signObject.SetCanvas(true);
                 signObject.SetAnimation(true);
             }
@@ -77,8 +75,9 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     private void OnTriggerExit2D(Collider2D other)
     {
         var signObject = other.gameObject.GetComponent<SignController>();
-        
-        if (signObject != null){
+
+        if (signObject != null)
+        {
             signObject.SetCanvas(false);
             signObject.SetAnimation(false);
         }
