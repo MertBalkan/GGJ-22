@@ -38,11 +38,13 @@ public class CharacterChangeController : MonoBehaviour
         {
             _currentCharacter = WhichCharacterEnum.Wolf;
             ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
+            SetImageActivity();
         }
         else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
         {
             _currentCharacter = WhichCharacterEnum.Sheep;
             ControlChangeStates(_sheepCharacter, _wolfCharacter, true, false);
+            SetImageActivity();
         }
     }
     private void CheckTransform()
@@ -57,5 +59,23 @@ public class CharacterChangeController : MonoBehaviour
         _sheepCharacter.SetActive(sheepSituation);
         toObj.transform.position = thisObj.transform.position;
         _wolfCharacter.SetActive(wolfSituation);
+    }
+    private void SetImageActivity()
+    {
+        if (_currentCharacter == WhichCharacterEnum.Sheep)
+        {
+            _sheepImage.SetActive(true);
+            _wolfImage.SetActive(false);
+        }
+        else if (_currentCharacter == WhichCharacterEnum.Wolf)
+        {
+            _sheepImage.SetActive(false);
+            _wolfImage.SetActive(true);
+        }
+        else
+        {
+            _sheepImage.SetActive(false);
+            _wolfImage.SetActive(false);
+        }
     }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum WhichCharacterEnum
 {
-    Sheep, Wolf
+    Sheep, Wolf, Default
 }
