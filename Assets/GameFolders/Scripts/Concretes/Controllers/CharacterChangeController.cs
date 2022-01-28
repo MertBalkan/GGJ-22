@@ -36,7 +36,8 @@ public class CharacterChangeController : MonoBehaviour
         ChangeCharacter();
         CheckVirtualCameraRotation();
     }
-    private void LateUpdate() {
+    private void LateUpdate()
+    {
         CheckTransform();
     }
     private void ChangeCharacter()
