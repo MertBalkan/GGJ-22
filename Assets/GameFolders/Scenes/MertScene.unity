@@ -454,9 +454,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &277456125
 BoxCollider2D:
@@ -1969,7 +1969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13f81c8ceca99741b3d14efb6fa21d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slowDownLength: 2
+  _slowDownLength: 4
 --- !u!1 &1526610460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2928,7 +2928,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762717329}
-  m_LocalRotation: {x: -3e-45, y: 1e-45, z: 0, w: 1}
+  m_LocalRotation: {x: 1e-45, y: 1e-45, z: 0, w: 1}
   m_LocalPosition: {x: -6.448, y: -3.635, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3255,7 +3255,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077454681}
-  m_LocalRotation: {x: -3e-45, y: 1e-45, z: 0, w: 1}
+  m_LocalRotation: {x: 1e-45, y: 1e-45, z: -0, w: 1}
   m_LocalPosition: {x: -6.448, y: -3.635, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
