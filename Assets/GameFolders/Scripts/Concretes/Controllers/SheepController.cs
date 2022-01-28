@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SheepController : MyCharacterController, IEntity
 {
+    protected override void Awake()
+    {
+        base.Awake();
+        _move = new MovePlayer(this, _moveSpeed, WhichCharacterEnum.Sheep);
+        _flip = new FlipMovement(this, WhichCharacterEnum.Sheep);
+    }
     protected override void Update()
     {
         base.Update();
@@ -11,7 +17,7 @@ public class SheepController : MyCharacterController, IEntity
     }
     private void SlowTimePower()
     {
-        
+
         if (_input.TimeAdjustButton)
         {
             _energyController.EnergyAmount -= TotalAmount;

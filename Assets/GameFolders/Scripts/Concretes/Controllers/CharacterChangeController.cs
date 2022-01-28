@@ -21,13 +21,15 @@ public class CharacterChangeController : MonoBehaviour
 
     private IInput _input;
 
+    public WhichCharacterEnum CurrentCharacter { get => _currentCharacter; set => _currentCharacter = value; }
+
     private void Awake()
     {
         _input = new PCInput();
     }
     private void Start()
     {
-        _currentCharacter = WhichCharacterEnum.Sheep;
+        CurrentCharacter = WhichCharacterEnum.Sheep;
     }
     private void Update()
     {
@@ -40,13 +42,13 @@ public class CharacterChangeController : MonoBehaviour
     {
         if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy)
         {
-            _currentCharacter = WhichCharacterEnum.Wolf;
+            CurrentCharacter = WhichCharacterEnum.Wolf;
             ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
             SetImageActivity();
         }
         else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
         {
-            _currentCharacter = WhichCharacterEnum.Sheep;
+            CurrentCharacter = WhichCharacterEnum.Sheep;
             ControlChangeStates(_sheepCharacter, _wolfCharacter, true, false);
             SetImageActivity();
         }
@@ -78,12 +80,12 @@ public class CharacterChangeController : MonoBehaviour
     }
     private void SetImageActivity()
     {
-        if (_currentCharacter == WhichCharacterEnum.Sheep)
+        if (CurrentCharacter == WhichCharacterEnum.Sheep)
         {
             _sheepImage.SetActive(true);
             _wolfImage.SetActive(false);
         }
-        else if (_currentCharacter == WhichCharacterEnum.Wolf)
+        else if (CurrentCharacter == WhichCharacterEnum.Wolf)
         {
             _sheepImage.SetActive(false);
             _wolfImage.SetActive(true);

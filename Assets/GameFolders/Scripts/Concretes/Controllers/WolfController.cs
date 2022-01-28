@@ -10,7 +10,9 @@ public class WolfController : MyCharacterController
     protected override void Awake()
     {
         base.Awake();
+        _move = new MovePlayer(this, _moveSpeed, WhichCharacterEnum.Wolf);
         _dash = new Dash(this, _input, _dashSpeed);
+        _flip = new FlipMovement(this, WhichCharacterEnum.Wolf);
     }
 
     protected override void Update()

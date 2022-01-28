@@ -9,7 +9,6 @@ public class PCInput : IInput
     public bool EatGrass => Input.GetKey(KeyCode.E);
     public bool TimeAdjustButton => Input.GetKeyDown(KeyCode.T);
     public bool ChangeCharacterButton => Input.GetKeyDown(KeyCode.Q);
-    public float HorizontalMove => Input.GetAxis("Horizontal");
     public float VerticalMove => Input.GetAxis("Vertical");
-
+    public float HorizontalMove => Input.GetAxis("Horizontal");
 }

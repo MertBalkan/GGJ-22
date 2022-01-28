@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public abstract class MyCharacterController : MonoBehaviour, IEntity
 {
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] protected float _moveSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _currentHealth;
     [SerializeField] private float totalAmount;
@@ -26,10 +26,8 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     {
         _rb = GetComponent<Rigidbody2D>();
         _input = new PCInput();
-        _move = new MovePlayer(this, _moveSpeed);
         _jump = new JumpPlayer(_rb, _jumpForce);
         _health = new Health(_currentHealth);
-        _flip = new FlipMovement(this);
     }
 
     protected virtual void FixedUpdate()
