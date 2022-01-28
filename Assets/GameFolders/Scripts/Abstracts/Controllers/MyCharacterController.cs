@@ -8,6 +8,10 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _currentHealth;
+    [SerializeField] protected float _decreaseAmount;
+
+    [SerializeField] protected EnergyController _energyController;
+    
     protected IMove _move;
     protected IInput _input;
     protected IJump _jump;

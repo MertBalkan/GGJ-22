@@ -18,7 +18,10 @@ public class WolfController : MyCharacterController
         base.Update();
         
         if (_health.IsDead) return;
-        if (_input.Dash) _dash.DashMovement();
+        if (_input.Dash) {
+            _energyController.EnergyAmount -= _decreaseAmount;
+            _dash.DashMovement();
+        }
     }
 
 }

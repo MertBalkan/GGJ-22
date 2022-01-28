@@ -13,6 +13,7 @@ public class SheepController : MyCharacterController, IEntity
     {
         if (_input.TimeAdjustButton)
         {
+            _energyController.EnergyAmount -= _decreaseAmount;
             GetComponent<TimeController>().MakeTimeToSlow();
         }
     }
