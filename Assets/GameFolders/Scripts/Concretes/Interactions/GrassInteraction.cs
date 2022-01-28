@@ -9,15 +9,25 @@ public class GrassInteraction : MonoBehaviour
     private IInput _input;
     private bool _canEat = false;
 
-    private void Awake() {
+    private void Awake()
+    {
         _input = new PCInput();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        var hayObject = other.gameObject.GetComponent<HayController>();
         if (other.gameObject.tag.Equals("Grass") && other.contacts[0].normal.y > 0.6f || other.contacts[0].normal.y < -0.6f)
         {
+            other.gameObject.GetComponent<HayController>().SetAnimation(true);
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * Time.deltaTime * _jumpForceFromGrass);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag.Equals("Grass"))
+        {
+            other.gameObject.GetComponent<HayController>().SetAnimation(false);
         }
     }
     private void OnCollisionStay2D(Collision2D other)
