@@ -16,9 +16,11 @@ public class WolfController : MyCharacterController
     protected override void Update()
     {
         base.Update();
-        
+
         if (_health.IsDead) return;
-        if (_input.Dash) {
+        
+        if (_input.Dash)
+        {
             _energyController.EnergyAmount -= _decreaseAmount;
             _dash.DashMovement();
         }
