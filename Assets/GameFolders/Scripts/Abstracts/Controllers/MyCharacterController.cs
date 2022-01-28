@@ -16,6 +16,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     protected IInput _input;
     protected IJump _jump;
     protected IHealth _health;
+    protected IFlip _flip;
 
     private Rigidbody2D _rb;
 
@@ -28,6 +29,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         _move = new MovePlayer(this, _moveSpeed);
         _jump = new JumpPlayer(_rb, _jumpForce);
         _health = new Health(_currentHealth);
+        _flip = new FlipMovement(this);
     }
 
     protected virtual void FixedUpdate()
@@ -42,8 +44,10 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
             return;
         }
 
-        if (_input.HorizontalMove != 0)
+        if (_input.HorizontalMove != 0){
+            _flip.Flip(_input.HorizontalMove);
             _move.Move(_input.HorizontalMove);
+        }
 
         if (_input.CharacterJump && _jump.OnGround)
             _jump.Jump();

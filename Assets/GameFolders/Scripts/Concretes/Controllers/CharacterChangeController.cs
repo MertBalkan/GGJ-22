@@ -33,23 +33,35 @@ public class CharacterChangeController : MonoBehaviour
     {
         ChangeCharacter();
         CheckTransform();
+        CheckVirtualCameraRotation();
+
     }
     private void ChangeCharacter()
     {
         if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy)
         {
-            _virtualCamera.m_Lens.Dutch = 180;
             _currentCharacter = WhichCharacterEnum.Wolf;
             ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
             SetImageActivity();
         }
         else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
         {
-            _virtualCamera.m_Lens.Dutch = 0;
             _currentCharacter = WhichCharacterEnum.Sheep;
             ControlChangeStates(_sheepCharacter, _wolfCharacter, true, false);
             SetImageActivity();
         }
+    }
+    private void CheckVirtualCameraRotation()
+    {
+        if (_sheepCharacter.activeInHierarchy)
+        {
+            _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 0, 0.01f);
+        }
+        else if (_wolfCharacter.activeInHierarchy)
+        {
+            _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 180, 0.01f);
+        }
+
     }
     private void CheckTransform()
     {
