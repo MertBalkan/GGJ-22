@@ -435,7 +435,7 @@ MonoBehaviour:
   _jumpForce: 15000
   _currentHealth: 100
   totalAmount: 20
-  _energyController: {fileID: 1277588003}
+  energyController: {fileID: 1277588003}
   _dashSpeed: 350
 --- !u!50 &277456124
 Rigidbody2D:
@@ -1942,7 +1942,7 @@ MonoBehaviour:
   _jumpForce: 20000
   _currentHealth: 100
   totalAmount: 20
-  _energyController: {fileID: 1277588003}
+  energyController: {fileID: 1277588003}
 --- !u!114 &1371324872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2928,7 +2928,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762717329}
-  m_LocalRotation: {x: 1e-45, y: 1e-45, z: 0, w: 1}
+  m_LocalRotation: {x: -3e-45, y: 1e-45, z: 0, w: 1}
   m_LocalPosition: {x: -6.448, y: -3.635, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3255,7 +3255,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077454681}
-  m_LocalRotation: {x: 1e-45, y: 1e-45, z: -0, w: 1}
+  m_LocalRotation: {x: -3e-45, y: 1e-45, z: 0, w: 1}
   m_LocalPosition: {x: -6.448, y: -3.635, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

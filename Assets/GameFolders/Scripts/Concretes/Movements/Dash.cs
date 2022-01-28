@@ -17,6 +17,7 @@ public class Dash : IDash
 
     public void DashMovement()
     {
+        if(GameObject.FindObjectOfType<EnergyController>().EnergyAmount <= 0) return;
         if (_input.HorizontalMove < 0)
         {
             // _wolfController.GetComponent<Rigidbody2D>().AddForce(Vector2.left * Time.fixedDeltaTime * _dashSpeed);

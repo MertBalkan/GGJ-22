@@ -57,11 +57,11 @@ public class CharacterChangeController : MonoBehaviour
     {
         if (_sheepCharacter.activeInHierarchy)
         {
-            _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 0, 0.01f);
+            _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 0, 3f * Time.deltaTime);
         }
         else if (_wolfCharacter.activeInHierarchy)
         {
-            _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 180, 0.01f);
+            _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 180, 3f * Time.deltaTime);
         }
 
     }
