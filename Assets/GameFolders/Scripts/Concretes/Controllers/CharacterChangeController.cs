@@ -17,6 +17,8 @@ public class CharacterChangeController : MonoBehaviour
     [Space(20)]
     [SerializeField] private WhichCharacterEnum _currentCharacter;
 
+    [SerializeField] private Cinemachine.CinemachineVirtualCamera _virtualCamera;
+
     private IInput _input;
 
     private void Awake()
@@ -36,12 +38,14 @@ public class CharacterChangeController : MonoBehaviour
     {
         if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy)
         {
+            _virtualCamera.m_Lens.Dutch = 180;
             _currentCharacter = WhichCharacterEnum.Wolf;
             ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
             SetImageActivity();
         }
         else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
         {
+            _virtualCamera.m_Lens.Dutch = 0;
             _currentCharacter = WhichCharacterEnum.Sheep;
             ControlChangeStates(_sheepCharacter, _wolfCharacter, true, false);
             SetImageActivity();
