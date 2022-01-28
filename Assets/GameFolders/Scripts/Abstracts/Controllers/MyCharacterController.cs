@@ -8,7 +8,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _currentHealth;
-    [SerializeField] protected float _decreaseAmount;
+    [SerializeField] private float totalAmount;
 
     [SerializeField] protected EnergyController _energyController;
     
@@ -18,6 +18,8 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     protected IHealth _health;
 
     private Rigidbody2D _rb;
+
+    public float TotalAmount { get => totalAmount; set => totalAmount = value; }
 
     protected virtual void Awake()
     {

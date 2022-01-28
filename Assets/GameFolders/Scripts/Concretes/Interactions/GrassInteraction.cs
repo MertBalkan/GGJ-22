@@ -5,6 +5,7 @@ using UnityEngine;
 public class GrassInteraction : MonoBehaviour
 {
     [SerializeField] private float _jumpForceFromGrass;
+    [SerializeField] private EnergyController _energyController;
     private IInput _input;
     private bool _canEat = false;
 
@@ -28,6 +29,7 @@ public class GrassInteraction : MonoBehaviour
 
         if (other.gameObject.tag.Equals("Grass") && _input.EatGrass && _canEat)
         {
+            _energyController.EnergyAmount += this.gameObject.GetComponent<SheepController>().TotalAmount;
             Destroy(other.gameObject);
         }
     }
