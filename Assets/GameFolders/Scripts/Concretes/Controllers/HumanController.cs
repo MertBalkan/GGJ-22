@@ -33,7 +33,7 @@ public class HumanController : MonoBehaviour, IEntity
         if (other.gameObject.tag.Equals("Siluet"))
         {
             CanChangeCharacter = true;
-            GameManager.Instance.LoadNextSceneWithID(1);
+            Destroy(other.gameObject);
         }
     }
 }
