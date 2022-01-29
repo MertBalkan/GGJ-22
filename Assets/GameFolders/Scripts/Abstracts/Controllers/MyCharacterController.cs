@@ -53,8 +53,13 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
             _animation.MoveAnimation(_input.HorizontalMove);
         }
 
-        if (_input.CharacterJump && _jump.OnGround)
+        if (_input.CharacterJump && _jump.OnGround){
             _jump.Jump();
+            _animation.JumpAnimation(true);
+        }
+        if(_jump.OnGround){
+            _animation.JumpAnimation(false);
+        }
 
     }
     protected virtual void OnCollisionEnter2D(Collision2D other)

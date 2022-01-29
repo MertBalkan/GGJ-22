@@ -40,8 +40,6 @@ public class FlipMovement : IFlip
             Vector2 newFlipVector = direction > 0 ? flipVector = new Vector2(direction, _entity.transform.localScale.y) : flipVector = new Vector2(direction, _entity.transform.localScale.y);
 
             _entity.transform.localScale = newFlipVector;
-
         }
-
     }
 }

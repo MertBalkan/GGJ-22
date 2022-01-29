@@ -24,6 +24,7 @@ public class WolfController : MyCharacterController
         if (_input.Dash)
         {
             energyController.EnergyAmount -= TotalAmount;
+            _animation.DashAnimation();
             _dash.DashMovement();
         }
     }

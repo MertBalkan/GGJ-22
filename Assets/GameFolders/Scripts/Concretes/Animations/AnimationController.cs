@@ -18,11 +18,11 @@ public class AnimationController : IAnimation
 
     public void DashAnimation()
     {
-        throw new System.NotImplementedException();
+        _entity.transform.GetComponent<Animator>().SetTrigger("dash");
     }
 
-    public void JumpAnimation()
+    public void JumpAnimation(bool isJump)
     {
-        throw new System.NotImplementedException();
+        _entity.transform.GetComponent<Animator>().SetBool("isJump", isJump);
     }
 }
