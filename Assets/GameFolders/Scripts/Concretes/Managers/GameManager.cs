@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +18,13 @@ public class GameManager : MonoBehaviour
     public void LoadNextSceneWithAutomatic()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //loads next scene automaticly... maybe we can use
+    }
+
+    public void StartGameButton(){
+        SceneManager.LoadScene(1);
+    }
+    public void QuitGameButton(){
+        Application.Quit();
     }
 
     private void MakeSingletonObject()

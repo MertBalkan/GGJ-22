@@ -36,7 +36,7 @@ public class HumanController : MonoBehaviour, IEntity
 
         if (other.gameObject.tag.Equals("Siluet"))
         {
-            GameManager.Instance.LoadNextSceneWithID(1);
+            GameManager.Instance.LoadNextSceneWithID(2);
             Destroy(other.gameObject);
         }
     }
