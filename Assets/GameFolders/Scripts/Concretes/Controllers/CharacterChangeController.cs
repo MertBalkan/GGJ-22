@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CharacterChangeController : MonoBehaviour
@@ -13,11 +14,17 @@ public class CharacterChangeController : MonoBehaviour
     [SerializeField] private GameObject _wolfImage;
     [SerializeField] private GameObject _sheepImage;
 
+    [Header("SLIDERS")]
+    [Space(20)]
+    [SerializeField] private Slider _wolfSlider;
+    [SerializeField] private Slider _sheepSlider;
+
     [Header("WHICH CHARACTER")]
     [Space(20)]
     [SerializeField] private WhichCharacterEnum _currentCharacter;
 
     [SerializeField] private Cinemachine.CinemachineVirtualCamera _virtualCamera;
+
 
     private IInput _input;
 
@@ -34,9 +41,8 @@ public class CharacterChangeController : MonoBehaviour
     private void Update()
     {
         ChangeCharacter();
-        
         CheckVirtualCameraRotation();
-
+        SetSliderActivity();
     }
 
     private void LateUpdate()
@@ -48,6 +54,7 @@ public class CharacterChangeController : MonoBehaviour
         if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy)
         {
             CurrentCharacter = WhichCharacterEnum.Wolf;
+
             ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
             SetImageActivity();
         }
@@ -99,6 +106,23 @@ public class CharacterChangeController : MonoBehaviour
         {
             _sheepImage.SetActive(false);
             _wolfImage.SetActive(false);
+        }
+    }
+    private void SetSliderActivity(){
+        if (CurrentCharacter == WhichCharacterEnum.Sheep)
+        {
+            _sheepSlider.gameObject.SetActive(true);
+            _wolfSlider.gameObject.SetActive(false);
+        }
+        else if (CurrentCharacter == WhichCharacterEnum.Wolf)
+        {
+            _sheepSlider.gameObject.SetActive(false);
+            _wolfSlider.gameObject.SetActive(true);
+        }
+        else
+        {
+            _sheepSlider.gameObject.SetActive(false);
+            _wolfSlider.gameObject.SetActive(false);
         }
     }
 }
