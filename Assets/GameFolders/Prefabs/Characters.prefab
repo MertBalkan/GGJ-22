@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 885511222432359283}
   - component: {fileID: 885511222432359282}
   - component: {fileID: 885511222432359285}
+  - component: {fileID: 277456123}
   m_Layer: 8
   m_Name: Wolf
   m_TagString: Untagged
@@ -518,6 +519,19 @@ MonoBehaviour:
   totalAmount: 20
   energyController: {fileID: 885511221818439085}
   _dashSpeed: 350
+--- !u!114 &277456123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885511222432359284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3691100a15e2ec34ab7091b860c3247a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _energyController: {fileID: 885511221818439085}
 --- !u!1 &885511222440279924
 GameObject:
   m_ObjectHideFlags: 0
