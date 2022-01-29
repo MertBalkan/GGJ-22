@@ -8,6 +8,8 @@ public class CharacterChangeController : MonoBehaviour
     [Header("CHARACTERS")]
     [SerializeField] private GameObject _wolfCharacter;
     [SerializeField] private GameObject _sheepCharacter;
+    [SerializeField] private GameObject _midSheep; //added
+    [SerializeField] private GameObject _midWolf;
 
     [Header("IMAGES")]
     [Space(20)]
@@ -25,7 +27,7 @@ public class CharacterChangeController : MonoBehaviour
 
     [SerializeField] private Cinemachine.CinemachineVirtualCamera _virtualCamera;
 
-
+    private TuttorialLevelCode _tuttorial;
     private IInput _input;
 
     public WhichCharacterEnum CurrentCharacter { get => _currentCharacter; set => _currentCharacter = value; }
@@ -36,7 +38,8 @@ public class CharacterChangeController : MonoBehaviour
     }
     private void Start()
     {
-        CurrentCharacter = WhichCharacterEnum.Sheep;
+        CurrentCharacter = WhichCharacterEnum.Default;
+        _tuttorial = FindObjectOfType<TuttorialLevelCode>();
     }
     private void Update()
     {
@@ -53,6 +56,7 @@ public class CharacterChangeController : MonoBehaviour
     {
         if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy)
         {
+            _tuttorial.AmIHuman = false;
             CurrentCharacter = WhichCharacterEnum.Wolf;
 
             ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
@@ -60,22 +64,30 @@ public class CharacterChangeController : MonoBehaviour
         }
         else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
         {
+            _tuttorial.AmIHuman = false;
             CurrentCharacter = WhichCharacterEnum.Sheep;
             ControlChangeStates(_sheepCharacter, _wolfCharacter, true, false);
+            SetImageActivity();
+        }
+        else if(_tuttorial.AmIHuman){
+            CurrentCharacter = WhichCharacterEnum.Default;
             SetImageActivity();
         }
     }
     private void CheckVirtualCameraRotation()
     {
-        if (_sheepCharacter.activeInHierarchy)
+        if (CurrentCharacter == WhichCharacterEnum.Sheep)
         {
             _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 0, 3f * Time.deltaTime);
+            _midSheep.SetActive(true);
+            _midWolf.SetActive(false);
         }
-        else if (_wolfCharacter.activeInHierarchy)
+        else if (CurrentCharacter == WhichCharacterEnum.Wolf)
         {
             _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 180, 3f * Time.deltaTime);
+            _midSheep.SetActive(false);
+            _midWolf.SetActive(true);
         }
-
     }
     private void CheckTransform()
     {
@@ -102,7 +114,7 @@ public class CharacterChangeController : MonoBehaviour
             _sheepImage.SetActive(false);
             _wolfImage.SetActive(true);
         }
-        else
+        else if(CurrentCharacter == WhichCharacterEnum.Default)
         {
             _sheepImage.SetActive(false);
             _wolfImage.SetActive(false);

@@ -12,12 +12,13 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
 
     [SerializeField] protected EnergyController energyController;
 
+    private bool _canChangeCharacter = false;
+
     protected IMove _move;
     protected IInput _input;
     protected IJump _jump;
     protected IHealth _health;
     protected IFlip _flip;
-
     private Rigidbody2D _rb;
 
     public float TotalAmount { get => totalAmount; set => totalAmount = value; }
@@ -33,7 +34,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
 
     protected virtual void FixedUpdate()
     {
-       
+
     }
     protected virtual void Update()
     {
@@ -43,7 +44,8 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
             return;
         }
 
-        if (_input.HorizontalMove != 0){
+        if (_input.HorizontalMove != 0)
+        {
             _flip.Flip(_input.HorizontalMove);
             _move.Move(_input.HorizontalMove);
         }
@@ -78,6 +80,10 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
                 signObject.SetCanvas(true);
                 signObject.SetAnimation(true);
             }
+        }
+        if (other.gameObject.tag.Equals("Siluet"))
+        {
+            _canChangeCharacter = true;
         }
     }
 

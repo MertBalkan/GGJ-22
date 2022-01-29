@@ -9,6 +9,7 @@ TagManager:
   - Grass
   - Sign
   - Meat
+  - Siluet
   layers:
   - Default
   - TransparentFX
