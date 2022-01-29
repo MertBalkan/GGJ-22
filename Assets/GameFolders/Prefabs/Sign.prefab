@@ -173,8 +173,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 239276675
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 54c1c34daff1dc04cb78eca805d4ea66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -219,7 +219,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.032163143, y: 0.017812371}
+  m_Offset: {x: -0.003971815, y: 0.031908035}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -230,7 +230,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.93218327, y: 1.3468425}
+  m_Size: {x: 0.8758006, y: 1.0555329}
   m_EdgeRadius: 0
 --- !u!114 &6477933570551857048
 MonoBehaviour:
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c5b7deeb335af44a6aa5e1fe4aba43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _writeText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+  _writeText: space'e bas
   _signCanvas: {fileID: 6477933569828468207}
   _text: {fileID: 6477933571389369939}
 --- !u!1 &6477933571319576488
