@@ -12,7 +12,6 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
 
     [SerializeField] protected EnergyController energyController;
 
-    private bool _canChangeCharacter = false;
 
     protected IMove _move;
     protected IInput _input;
@@ -80,10 +79,6 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
                 signObject.SetCanvas(true);
                 signObject.SetAnimation(true);
             }
-        }
-        if (other.gameObject.tag.Equals("Siluet"))
-        {
-            _canChangeCharacter = true;
         }
     }
 

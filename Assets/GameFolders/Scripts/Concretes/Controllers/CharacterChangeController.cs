@@ -8,6 +8,7 @@ public class CharacterChangeController : MonoBehaviour
     [Header("CHARACTERS")]
     [SerializeField] private GameObject _wolfCharacter;
     [SerializeField] private GameObject _sheepCharacter;
+    [SerializeField] private GameObject _humanCharacter; //only in tut
     [SerializeField] private GameObject _midSheep; //added
     [SerializeField] private GameObject _midWolf;
 
@@ -26,6 +27,7 @@ public class CharacterChangeController : MonoBehaviour
     [SerializeField] private WhichCharacterEnum _currentCharacter;
 
     [SerializeField] private Cinemachine.CinemachineVirtualCamera _virtualCamera;
+    [SerializeField] private HumanController _human;
 
     private TuttorialLevelCode _tuttorial;
     private IInput _input;
@@ -54,7 +56,7 @@ public class CharacterChangeController : MonoBehaviour
     }
     private void ChangeCharacter()
     {
-        if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy)
+        if (_input.ChangeCharacterButton && _sheepCharacter.activeInHierarchy && _human.CanChangeCharacter)
         {
             _tuttorial.AmIHuman = false;
             CurrentCharacter = WhichCharacterEnum.Wolf;
@@ -62,7 +64,7 @@ public class CharacterChangeController : MonoBehaviour
             ControlChangeStates(_wolfCharacter, _sheepCharacter, false, true);
             SetImageActivity();
         }
-        else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy)
+        else if (_input.ChangeCharacterButton && !_sheepCharacter.activeInHierarchy && _human.CanChangeCharacter)
         {
             _tuttorial.AmIHuman = false;
             CurrentCharacter = WhichCharacterEnum.Sheep;
@@ -78,6 +80,7 @@ public class CharacterChangeController : MonoBehaviour
     {
         if (CurrentCharacter == WhichCharacterEnum.Sheep)
         {
+            _human.gameObject.SetActive(false);
             _virtualCamera.m_Lens.Dutch = Mathf.Lerp(_virtualCamera.m_Lens.Dutch, 0, 3f * Time.deltaTime);
             _midSheep.SetActive(true);
             _midWolf.SetActive(false);
@@ -91,10 +94,12 @@ public class CharacterChangeController : MonoBehaviour
     }
     private void CheckTransform()
     {
-        if (!_sheepCharacter.activeInHierarchy)
+        if (_wolfCharacter.activeInHierarchy)
             transform.position = _wolfCharacter.transform.position;
-        else
+        else if(_sheepCharacter.activeInHierarchy)
             transform.position = _sheepCharacter.transform.position;
+        else if(_humanCharacter.activeInHierarchy)
+            transform.position = _humanCharacter.transform.position;
     }
     private void ControlChangeStates(GameObject toObj, GameObject thisObj, bool sheepSituation, bool wolfSituation)
     {

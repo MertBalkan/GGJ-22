@@ -33,6 +33,7 @@ public class HumanController : MonoBehaviour, IEntity
         if (other.gameObject.tag.Equals("Siluet"))
         {
             CanChangeCharacter = true;
+            Destroy(other.gameObject);
         }
     }
 }
