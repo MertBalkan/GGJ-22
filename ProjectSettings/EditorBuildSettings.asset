@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/GameFolders/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/GameFolders/Scenes/MertScene.unity
-    guid: 366fa7519090db94e86e6cc396f3b2b4
+    path: Assets/GameFolders/Scenes/Starter.unity
+    guid: 9085cb00b28b42044a08f22a2ca6ba0b
+  - enabled: 1
+    path: Assets/GameFolders/Scenes/BurakScene.unity
+    guid: d21cc378ff68cd84ebc7c88de4039bae
   m_configObjects: {}
