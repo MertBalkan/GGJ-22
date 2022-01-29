@@ -1,4 +1,4 @@
 public interface IFlip
 {
-    void Flip(float direction);
+    void Flip(float direction, float scaleValue);
 }

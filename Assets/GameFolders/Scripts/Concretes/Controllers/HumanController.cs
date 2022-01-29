@@ -23,7 +23,7 @@ public class HumanController : MonoBehaviour, IEntity
     {
         if (_input.HorizontalMove != 0)
         {
-            _flip.Flip(_input.HorizontalMove);
+            _flip.Flip(_input.HorizontalMove, 0);
             _move.Move(_input.HorizontalMove);
         }
     }

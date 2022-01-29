@@ -12,7 +12,7 @@ public class FlipMovement : IFlip
         _entity = entity;
         _whichCharacterEnum = whichCharacterEnum;
     }
-    public void Flip(float direction)
+    public void Flip(float direction, float scaleValue)
     {
         if (direction == 0) return;
         direction = Mathf.Sign(direction);
@@ -21,7 +21,7 @@ public class FlipMovement : IFlip
         {
             Vector2 flipVector = new Vector2(direction * _entity.transform.localScale.x, _entity.transform.localScale.y);
 
-            Vector2 newFlipVector = direction > 0 ? flipVector = new Vector2(direction, _entity.transform.localScale.y) : flipVector = new Vector2(direction, _entity.transform.localScale.y);
+            Vector2 newFlipVector = direction > 0 ? flipVector = new Vector2(direction - scaleValue, _entity.transform.localScale.y) : flipVector = new Vector2(direction + scaleValue, _entity.transform.localScale.y);
 
             _entity.transform.localScale = newFlipVector;
         }
@@ -29,7 +29,7 @@ public class FlipMovement : IFlip
         {
             Vector2 flipVector = new Vector2(direction * _entity.transform.localScale.x, _entity.transform.localScale.y);
 
-            Vector2 newFlipVector = direction > 0 ? flipVector = new Vector2(direction * -1, _entity.transform.localScale.y) : flipVector = new Vector2(direction * -1, _entity.transform.localScale.y);
+            Vector2 newFlipVector = direction > 0 ? flipVector = new Vector2(direction - scaleValue, _entity.transform.localScale.y) : flipVector = new Vector2(direction + scaleValue, _entity.transform.localScale.y);
 
             _entity.transform.localScale = newFlipVector;
         }

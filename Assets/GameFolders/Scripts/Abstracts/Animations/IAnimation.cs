@@ -1,6 +1,6 @@
 public interface IAnimation
 {
-    void MoveAnimation();
+    void MoveAnimation(float direction);
     void JumpAnimation();
     void DashAnimation();
 }

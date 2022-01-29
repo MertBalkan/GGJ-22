@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public abstract class MyCharacterController : MonoBehaviour, IEntity
 {
+    [SerializeField] private float _scaleValue;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _currentHealth;
@@ -18,6 +19,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     protected IJump _jump;
     protected IHealth _health;
     protected IFlip _flip;
+    protected IAnimation _animation;
     private Rigidbody2D _rb;
 
     public float TotalAmount { get => totalAmount; set => totalAmount = value; }
@@ -29,6 +31,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         _input = new PCInput();
         _jump = new JumpPlayer(_rb, _jumpForce);
         _health = new Health(_currentHealth);
+        _animation = new AnimationController(this);
     }
 
     protected virtual void FixedUpdate()
@@ -45,8 +48,9 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
 
         if (_input.HorizontalMove != 0)
         {
-            _flip.Flip(_input.HorizontalMove);
+            _flip.Flip(_input.HorizontalMove, _scaleValue);
             _move.Move(_input.HorizontalMove);
+            _animation.MoveAnimation(_input.HorizontalMove);
         }
 
         if (_input.CharacterJump && _jump.OnGround)
