@@ -25,4 +25,9 @@ public class AnimationController : IAnimation
     {
         _entity.transform.GetComponent<Animator>().SetBool("isJump", isJump);
     }
+
+    public void EatGrass()
+    {
+        _entity.transform.GetComponent<Animator>().SetTrigger("eatGrass");
+    }
 }

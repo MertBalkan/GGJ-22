@@ -5,13 +5,16 @@ using UnityEngine;
 public class GrassInteraction : MonoBehaviour
 {
     [SerializeField] private float _jumpForceFromGrass;
+    [SerializeField] private SheepController _sheep;
     [SerializeField] private EnergyController _energyController;
     private IInput _input;
+    // private IAnimation _anim;
     private bool _canEat = false;
 
     private void Awake()
     {
         _input = new PCInput();
+        // _anim = _sheep.GetComponent<AnimationController>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -44,6 +47,7 @@ public class GrassInteraction : MonoBehaviour
         if (other.gameObject.tag.Equals("Grass") && _input.EatGrass && _canEat)
         {
             _energyController.EnergyAmount += this.gameObject.GetComponent<SheepController>().TotalAmount;
+            // _anim.EatGrass();
             Destroy(other.gameObject);
         }
     }

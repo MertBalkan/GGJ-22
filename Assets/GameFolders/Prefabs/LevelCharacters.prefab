@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8361046711893359862
 Transform:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   _moveSpeed: 4
   _jumpForce: 20000
   _currentHealth: 100
-  totalAmount: 20
+  _totalAmount: 20
   energyController: {fileID: 8361046711967371027}
 --- !u!114 &8361046711893359864
 MonoBehaviour:
@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForceFromGrass: 20000
+  _sheep: {fileID: 8361046711893359863}
   _energyController: {fileID: 8361046711967371027}
 --- !u!114 &8361046711893359865
 MonoBehaviour:
@@ -222,7 +223,7 @@ Animator:
   m_GameObject: {fileID: 8361046711893359859}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9c2fa86d1cd2e84aa0559abc7e3b415, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -460,7 +461,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8361046712985098702
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8361046712985098698}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.448, y: -3.635, z: 0}
+  m_LocalPosition: {x: -6.448, y: -3.772, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 8361046712718147035}
@@ -539,7 +540,7 @@ MonoBehaviour:
   _moveSpeed: 10
   _jumpForce: 15000
   _currentHealth: 100
-  totalAmount: 20
+  _totalAmount: 20
   energyController: {fileID: 8361046711967371027}
   _dashSpeed: 350
 --- !u!114 &8665365952589127237
