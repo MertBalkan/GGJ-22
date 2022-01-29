@@ -32,6 +32,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         _jump = new JumpPlayer(_rb, _jumpForce);
         _health = new Health(_currentHealth);
         _animation = new AnimationController(this);
+
     }
 
     protected virtual void FixedUpdate()
@@ -53,11 +54,13 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
             _animation.MoveAnimation(_input.HorizontalMove);
         }
 
-        if (_input.CharacterJump && _jump.OnGround){
+        if (_input.CharacterJump && _jump.OnGround)
+        {
             _jump.Jump();
             _animation.JumpAnimation(true);
         }
-        if(_jump.OnGround){
+        if (_jump.OnGround)
+        {
             _animation.JumpAnimation(false);
         }
 
