@@ -12,7 +12,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     [SerializeField] private float _totalAmount;
 
     [SerializeField] protected EnergyController energyController;
-
+    [SerializeField] private InformationCanvas _infoCanvas;
 
     protected IMove _move;
     protected IInput _input;
@@ -21,6 +21,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     protected IFlip _flip;
     protected IAnimation _animation;
     private Rigidbody2D _rb;
+    public static SignController currentSign;
 
     public float TotalAmount { get => _totalAmount; set => _totalAmount = value; }
     public EnergyController EnergyController { get => energyController; set => energyController = value; }
@@ -43,7 +44,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
     {
         if (_health.IsDead) //if character is dead then return and dont do anything. This will suddenly stop player's move
         {
-            GameManager.Instance.LoadNextSceneWithID(1); //loading next scene here... maybe we can change this one's position later
+            GameManager.Instance.LoadNextSceneWithID(2); //loading next scene here... maybe we can change this one's position later
             return;
         }
 
@@ -85,12 +86,21 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
         if (other.gameObject.tag.Equals("Sign"))
         {
             var signObject = other.gameObject.GetComponent<SignController>();
-
+            currentSign = signObject;
             if (signObject != null)
             {
+                _infoCanvas.StartCoroutine(_infoCanvas.StartWriting());
                 signObject.SetCanvas(true);
                 signObject.SetAnimation(true);
             }
+        }
+        if (other.gameObject.tag.Equals("EndLevel"))
+        {
+            GameManager.Instance.LoadNextSceneWithID(3);
+        }
+        if (other.gameObject.tag.Equals("From"))
+        {
+            this.transform.position = GameObject.FindGameObjectWithTag("To").gameObject.transform.position;
         }
     }
 

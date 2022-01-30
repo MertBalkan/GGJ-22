@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameFolders/Scenes/BurakScene.unity
     guid: d21cc378ff68cd84ebc7c88de4039bae
+  - enabled: 1
+    path: Assets/GameFolders/Scenes/EndLevel.unity
+    guid: 33696627f496e9c428d9764dbcf72a8e
   m_configObjects: {}

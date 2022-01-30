@@ -17,19 +17,18 @@ public class InformationCanvas : MonoBehaviour
         _text = GetComponentInChildren<TextMeshProUGUI>();
         _audioSource = GetComponent<AudioSource>();
     }
-    private void Start()
-    {
-        StartCoroutine(StartWriting());
-    }
-    private IEnumerator StartWriting()
+    public IEnumerator StartWriting()
     {
         foreach (char i in _infoText)
         {
             _text.text += i;
-            _audioSource.pitch = Random.Range(1f, 1.2f);
-            _audioSource.PlayOneShot(_typeSound);
-            if (i.ToString().Equals(".")) yield return new WaitForSeconds(1.0f);
-            else yield return new WaitForSeconds(0.2f);
+            _audioSource.Play();
+            if (i.ToString().Equals("."))
+            {
+                _infoText = "A";
+                yield return new WaitForSeconds(0.5f);
+            }
+            else yield return new WaitForSeconds(0.06f);
         }
     }
 }

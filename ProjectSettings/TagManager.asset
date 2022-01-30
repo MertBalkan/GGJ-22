@@ -10,6 +10,9 @@ TagManager:
   - Sign
   - Meat
   - Siluet
+  - EndLevel
+  - From
+  - To
   layers:
   - Default
   - TransparentFX
@@ -20,10 +23,10 @@ TagManager:
   - Background
   - Midground
   - Foreground
-  - 
-  - 
-  - 
-  - 
+  - Background1
+  - Background2
+  - Background3
+  - Background4
   - 
   - 
   - 
