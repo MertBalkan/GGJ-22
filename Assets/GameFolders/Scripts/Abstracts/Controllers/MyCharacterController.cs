@@ -89,7 +89,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
             currentSign = signObject;
             if (signObject != null)
             {
-                _infoCanvas.StartCoroutine(_infoCanvas.StartWriting());
+                // _infoCanvas.StartCoroutine(_infoCanvas.StartWriting());
                 signObject.SetCanvas(true);
                 signObject.SetAnimation(true);
             }
