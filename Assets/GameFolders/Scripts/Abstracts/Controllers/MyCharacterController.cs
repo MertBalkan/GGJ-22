@@ -13,6 +13,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
 
     [SerializeField] protected EnergyController energyController;
     [SerializeField] private InformationCanvas _infoCanvas;
+    [SerializeField] private GameObject _checkpoint;
 
     protected IMove _move;
     protected IInput _input;
@@ -72,7 +73,7 @@ public abstract class MyCharacterController : MonoBehaviour, IEntity
 
         if (other.gameObject.tag.Equals("Obstacle"))
         {
-            _health.TakeDamage(_currentHealth); //this kills player suddenly
+            this.transform.position = _checkpoint.transform.position;
         }
     }
 
