@@ -14,18 +14,18 @@
 
 
 <div align="center"><h2>KEYBOARD CONTROLLERS:</h2><div>
-<p>Sheep Controllers:</p>
+ <p><bold>Sheep Controllers:</bold></p>
 <p>WASD ->movement</p>
 <p>Space->jump</p>
 <p>T->slow Time</p>
 <p>E->eat Grass</p>
 
-<p>Wolf Character Controllers:</p>
+ <p><bold>Wolf Character Controllers:</bold></p>
 <p>WASD -> movement</p>
 <p>Space-> jump</p>
 <p>E-> dash</p>
 
-<p>Generally:</p>
+<p><bold>Generally:</bold></p>
 <p>Q->Character Changing</p>
  
 <p>This game project has developed in Izmir Oygem for Global Game Jam 2022.</p>
