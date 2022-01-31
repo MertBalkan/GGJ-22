@@ -17,9 +17,6 @@
 <p>Theme: Duality</p>
 
 
-![Screenshot](gss2.png)
-![Screenshot](gss3.png)
-
 <p align="center">
   <img src="https://github.com/MertBalkan/GGJ-22/blob/main/GamePhotos/gss1.png" width="350" title="SS1">
   <img src="https://github.com/MertBalkan/GGJ-22/blob/main/GamePhotos/gss2.png" width="350" title="SS2">
