@@ -1,12 +1,12 @@
 # GGJ-22
 
-<h1>GAME DEVELOPERS</h1>
+<div align="center"><h1>GAME DEVELOPERS</h1><div>
 
 <p>BURAKHAN ALTAY</p>
 <p>MERT BALKAN</p>
 
  
-<h1>GAME ARTISTS</h1>
+<div align="center"><h1>GAME ARTISTS</h1><div>
 <p>SABAHAT SARIOGLU</p>
 <p>OSMAN TOMASO</p>
 <p>IREM ERDAL</p>
