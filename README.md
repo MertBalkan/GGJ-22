@@ -12,6 +12,22 @@
 <p>IREM ERDAL</p>
 <p>MUHITTIN BAYKAL</p>
 
+
+<div align="center"><h2>KEYBOARD CONTROLLERS:</h2><div>
+<p>Sheep Controllers:</p>
+<p>WASD ->movement</p>
+<p>Space->jump</p>
+<p>T->slow Time</p>
+<p>E->eat Grass</p>
+
+<p>Wolf Character Controllers:</p>
+<p>WASD -> movement</p>
+<p>Space-> jump</p>
+<p>E-> dash</p>
+
+<p>Generally:</p>
+<p>Q->Character Changing</p>
+ 
 <p>This game project has developed in Izmir Oygem for Global Game Jam 2022.</p>
 
 <p>Theme: Duality</p>
