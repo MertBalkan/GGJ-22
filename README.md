@@ -21,4 +21,5 @@
   <img src="https://github.com/MertBalkan/GGJ-22/blob/main/GamePhotos/gss1.png" width="350" title="SS1">
   <img src="https://github.com/MertBalkan/GGJ-22/blob/main/GamePhotos/gss2.png" width="350" title="SS2">
   <img src="https://github.com/MertBalkan/GGJ-22/blob/main/GamePhotos/gss3.png" width="350" title="SS3">
+  <img src="https://github.com/MertBalkan/GGJ-22/blob/main/GamePhotos/gss4.png" width="350" title="SS4">
 </p>
