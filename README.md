@@ -1,19 +1,22 @@
 # GGJ-22
 
-GAME DEVELOPERS
+<h1>GAME DEVELOPERS</h1>
 
-BURAKHAN ALTAY
-MERT BALKAN
+<p>BURAKHAN ALTAY</p>
+<p>MERT BALKAN</p>
 
  
+<h1>GAME ARTISTS</h1>
+<p>SABAHAT SARIOGLU</p>
+<p>OSMAN TOMASO</p>
+<p>IREM ERDAL</p>
+<p>MUHITTIN BAYKAL</p>
 
-GAME ARTISTS 
+<p>This game project has developed in Izmir Oygem for Global Game Jam 2022.</p>
 
-SABAHAT SARIOGLU
-OSMAN TOMASO
-IREM ERDAL
-MUHITTIN BAYKAL
+<p>Theme: Duality</p>
 
-This game project has developed in Izmir Oygem for Global Game Jam 2022.
 
-Theme: Duality
+![Screenshot](gss1.png)
+![Screenshot](gss2.png)
+![Screenshot](gss3.png)
